@@ -9,7 +9,7 @@ class Product(models.Model):
     carbs = models.DecimalField(max_digits=5, decimal_places=2)
     fats = models.DecimalField(max_digits=5, decimal_places=2)
     calories = models.IntegerField()
-    image = models.ImageField(upload_to='products/')
+    image = models.ImageField(upload_to='products/', blank=True)
 
     def __str__(self):
         return f'<{self.id}> {self.title}' 
@@ -24,7 +24,7 @@ class Meal(models.Model):
     total_fats = models.DecimalField(max_digits=5, decimal_places=2)
     total_calories = models.IntegerField()
     created = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='meals/')
+    image = models.CharField(max_length=100)
 
     class Meta:
         ordering = ['created']

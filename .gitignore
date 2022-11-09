@@ -1,4 +1,5 @@
 *.log
+*.txt
 *.pot
 *.pyc
 __pycache__

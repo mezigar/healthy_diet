@@ -1,13 +1,13 @@
 from meals.models import Product, Meal
 from meals.serializers import ProductSerializer, MealSerializer
 
-from rest_framework import generics
+from rest_framework.viewsets import ModelViewSet
 
-class ProductList(generics.ListCreateAPIView):
+class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
 
-class MealList(generics.ListCreateAPIView):
+class MealViewSet(ModelViewSet):
     queryset = Meal.objects.all().order_by('-created')
     serializer_class = MealSerializer
